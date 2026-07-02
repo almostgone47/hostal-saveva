@@ -1,0 +1,86 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --color-saveva-blue: #0D2B6B;
+  --color-saveva-green: #2E7D32;
+  --color-saveva-orange: #FF7A00;
+  --color-saveva-celeste: #3FA9F5;
+  --color-saveva-cream: #FDECE1;
+  --color-saveva-darkbg: #0B1220;
+  --color-saveva-carddark: #151F32;
+  
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Poppins', sans-serif;
+}
+
+/* Base customized scrollbars and transitions */
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+}
+
+body {
+  @apply text-[#2E2E2E] bg-[#FDF5EC] dark:bg-saveva-darkbg dark:text-slate-100 transition-colors duration-300;
+}
+
+/* Animations and decorative items */
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(4deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float-reverse {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-16px) rotate(-5deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+.animate-float-reverse {
+  animation: float-reverse 8s ease-in-out infinite;
+}
+
+@keyframes sway {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(8deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-sway {
+  animation: sway 5s ease-in-out infinite;
+}
+
+/* custom styles for nature elements */
+.leaf-particle {
+  pointer-events: none;
+  opacity: 0.15;
+  transition: opacity 0.3s ease;
+}
+
+.dark .leaf-particle {
+  opacity: 0.08;
+}
+

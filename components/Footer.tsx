@@ -1,0 +1,174 @@
+'use client';
+
+import React from 'react';
+import Link from 'next/link';
+import { Mail, MapPin, Phone, Instagram, ArrowUpRight } from 'lucide-react';
+import { useApp } from '@/context/AppContext';
+
+export default function Footer() {
+  const { t } = useApp();
+
+  return (
+    <footer id="main-footer" className="bg-slate-900 text-slate-300 pt-16 pb-8 border-t border-slate-800 relative z-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-12 border-b border-slate-800">
+          
+          {/* Brand Presentation */}
+          <div className="space-y-4">
+            <Link href="/" className="flex items-center space-x-2">
+              <div className="w-8 h-8 bg-saveva-orange/10 rounded-full flex items-center justify-center text-saveva-orange">
+                <svg viewBox="0 0 64 64" fill="currentColor" className="w-6 h-6">
+                  <path d="M12 28 C16 28 22 24 26 18 C30 12 30 6 28 4 C26 2 20 2 16 6 C12 10 10 18 12 28 Z" fill="#3FA9F5" />
+                  <path d="M28 22 C34 22 42 30 46 38 C50 46 48 52 44 54 C40 56 34 52 30 44 C26 36 24 28 28 22 Z" fill="#2E7D32" />
+                  <path d="M14 18 C14 18 20 8 28 8 C36 8 46 16 48 24 C50 32 40 38 32 38 C24 38 14 26 14 18 Z" fill="#FF7A00" />
+                  <circle cx="26" cy="12" r="2" fill="white" />
+                  <path d="M14 6 L2 2" stroke="#FF7A00" strokeWidth="2.5" strokeLinecap="round" />
+                </svg>
+              </div>
+              <span className="font-display font-black text-xl tracking-wider text-white">SAVEVA</span>
+            </Link>
+            <p className="text-sm text-slate-400">
+              {t('heroSub', 'home')}
+            </p>
+            <p className="text-xs text-saveva-celeste font-mono uppercase tracking-wider">
+              {t('designedFor', 'common')}
+            </p>
+          </div>
+
+          {/* Quick Links */}
+          <div className="space-y-4">
+            <h3 className="font-display font-bold text-white text-sm uppercase tracking-wider">
+              {t('nav', 'common')}
+            </h3>
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <Link href="/" className="hover:text-saveva-orange transition-colors flex items-center group">
+                  <span className="mr-1 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                  {t('home', 'nav')}
+                </Link>
+              </li>
+              <li>
+                <Link href="/habitaciones" className="hover:text-saveva-orange transition-colors flex items-center group">
+                  <span className="mr-1 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                  {t('rooms', 'nav')}
+                </Link>
+              </li>
+              <li>
+                <Link href="/apartaestudios" className="hover:text-saveva-orange transition-colors flex items-center group">
+                  <span className="mr-1 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                  {t('apartments', 'nav')}
+                </Link>
+              </li>
+              <li>
+                <Link href="/stay-study" className="hover:text-saveva-orange transition-colors flex items-center group">
+                  <span className="mr-1 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                  {t('stayStudy', 'nav')}
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* More Quick Links */}
+          <div className="space-y-4">
+            <h3 className="font-display font-bold text-white text-sm uppercase tracking-wider">
+              &nbsp;
+            </h3>
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <Link href="/nosotros" className="hover:text-saveva-orange transition-colors flex items-center group">
+                  <span className="mr-1 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                  {t('about', 'nav')}
+                </Link>
+              </li>
+              <li>
+                <Link href="/experiencias" className="hover:text-saveva-orange transition-colors flex items-center group">
+                  <span className="mr-1 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                  {t('experiences', 'nav')}
+                </Link>
+              </li>
+              <li>
+                <Link href="/reservas" className="hover:text-saveva-orange transition-colors flex items-center group">
+                  <span className="mr-1 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                  {t('booking', 'nav')}
+                </Link>
+              </li>
+              <li>
+                <Link href="/contacto" className="hover:text-saveva-orange transition-colors flex items-center group">
+                  <span className="mr-1 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                  {t('contact', 'nav')}
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contacts Information */}
+          <div className="space-y-4">
+            <h3 className="font-display font-bold text-white text-sm uppercase tracking-wider">
+              {t('contactInfo', 'contacto')}
+            </h3>
+            <ul className="space-y-3.5 text-sm text-slate-400">
+              <li className="flex items-start space-x-2">
+                <MapPin className="w-5 h-5 text-saveva-green shrink-0 mt-0.5" />
+                <span>Laureles Estadio, Medellín, Colombia</span>
+              </li>
+              <li>
+                <a
+                  href="https://wa.me/573332627268"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-2 hover:text-saveva-orange transition-colors"
+                >
+                  <Phone className="w-5 h-5 text-saveva-orange shrink-0" />
+                  <span>+57 333 2627268</span>
+                </a>
+              </li>
+              <li className="flex items-center space-x-2">
+                <Mail className="w-5 h-5 text-saveva-celeste shrink-0" />
+                <span className="break-all">fundacion.saveva@gmail.com</span>
+              </li>
+              <li>
+                <a
+                  href="https://instagram.com/hostalsaveva"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-2 hover:text-saveva-orange transition-colors"
+                >
+                  <Instagram className="w-5 h-5 text-pink-500 shrink-0" />
+                  <span>@hostalsaveva</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        {/* Footer Bottom */}
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500 space-y-4 md:space-y-0">
+          <div>
+            &copy; {new Date().getFullYear()} SAVEVA Hostal Medellín. {t('allRights', 'common')}
+          </div>
+          <div className="flex space-x-6">
+            <a
+              href="https://instagram.com/hostalsaveva"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors flex items-center space-x-1"
+            >
+              <span>Instagram</span>
+              <ArrowUpRight className="w-3 h-3" />
+            </a>
+            <a
+              href="https://wa.me/573332627268"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors flex items-center space-x-1"
+            >
+              <span>WhatsApp</span>
+              <ArrowUpRight className="w-3 h-3" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}

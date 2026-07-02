@@ -1,0 +1,254 @@
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { Menu, X, Sun, Moon, Globe, MessageSquare } from 'lucide-react';
+import { useApp } from '@/context/AppContext';
+
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const { language, setLanguage, theme, toggleTheme, t } = useApp();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Close drawer on path change (handled via inline click handlers to avoid effect setstate)
+
+  const navItems = [
+    { name: t('home', 'nav'), path: '/' },
+    { name: t('rooms', 'nav'), path: '/habitaciones' },
+    { name: t('apartments', 'nav'), path: '/apartaestudios' },
+    { name: t('stayStudy', 'nav'), path: '/stay-study' },
+    { name: t('about', 'nav'), path: '/nosotros' },
+    { name: t('experiences', 'nav'), path: '/experiencias' },
+    { name: t('booking', 'nav'), path: '/reservas' },
+    { name: t('contact', 'nav'), path: '/contacto' },
+  ];
+
+  return (
+    <nav
+      id="main-navbar"
+      className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${
+        scrolled
+          ? 'bg-white/95 dark:bg-saveva-darkbg/95 shadow-md py-3 backdrop-blur-md border-b border-slate-200/50 dark:border-slate-800/50'
+          : 'bg-white/80 dark:bg-saveva-darkbg/80 md:bg-transparent py-4'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link href="/" className="flex items-center space-x-2 group focus:outline-none focus:ring-2 focus:ring-saveva-orange rounded-lg p-1">
+            {/* Hummingbird Logo SVG */}
+            <div className="relative w-10 h-10 bg-saveva-orange/10 dark:bg-saveva-orange/20 rounded-full flex items-center justify-center text-saveva-orange group-hover:scale-105 transition-transform">
+              <svg
+                viewBox="0 0 64 64"
+                fill="currentColor"
+                className="w-7 h-7"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                {/* Custom hummingbird vector design */}
+                <path d="M12 28 C16 28 22 24 26 18 C30 12 30 6 28 4 C26 2 20 2 16 6 C12 10 10 18 12 28 Z" fill="#3FA9F5" />
+                <path d="M28 22 C34 22 42 30 46 38 C50 46 48 52 44 54 C40 56 34 52 30 44 C26 36 24 28 28 22 Z" fill="#2E7D32" />
+                <path d="M14 18 C14 18 20 8 28 8 C36 8 46 16 48 24 C50 32 40 38 32 38 C24 38 14 26 14 18 Z" fill="#FF7A00" />
+                <circle cx="26" cy="12" r="2" fill="white" />
+                {/* Beak */}
+                <path d="M14 6 L2 2" stroke="#FF7A00" strokeWidth="2.5" strokeLinecap="round" />
+              </svg>
+            </div>
+            <div className="flex flex-col">
+              <span className="font-display font-black text-2xl tracking-wider text-saveva-blue dark:text-white leading-none">
+                SAVEVA
+              </span>
+              <span className="text-[10px] uppercase font-mono tracking-widest text-saveva-green dark:text-saveva-celeste leading-none mt-1">
+                Hostal · Medellín
+              </span>
+            </div>
+          </Link>
+
+          {/* Desktop Nav Items */}
+          <div className="hidden lg:flex items-center space-x-1">
+            {navItems.map((item) => {
+              const isActive = pathname === item.path;
+              return (
+                <Link
+                  key={item.path}
+                  href={item.path}
+                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-saveva-orange ${
+                    isActive
+                      ? 'text-saveva-orange bg-saveva-orange/5 dark:bg-saveva-orange/10 font-bold'
+                      : 'text-slate-700 dark:text-slate-300 hover:text-saveva-orange hover:bg-slate-100 dark:hover:bg-slate-800'
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
+          </div>
+
+          {/* Actions: Theme, Lang, CTA */}
+          <div className="hidden lg:flex items-center space-x-3">
+            {/* Language toggle */}
+            <button
+              onClick={() => setLanguage(language === 'es' ? 'en' : 'es')}
+              className="flex items-center space-x-1 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm font-medium text-slate-700 dark:text-slate-300 transition-colors focus:outline-none focus:ring-2 focus:ring-saveva-orange"
+              title="Toggle Language"
+            >
+              <Globe className="w-4 h-4 text-saveva-green" />
+              <span>{language === 'es' ? 'EN' : 'ES'}</span>
+            </button>
+
+            {/* Theme toggle */}
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition-colors focus:outline-none focus:ring-2 focus:ring-saveva-orange"
+              title="Toggle Theme"
+            >
+              {theme === 'light' ? (
+                <Moon className="w-4 h-4 text-saveva-blue" />
+              ) : (
+                <Sun className="w-4 h-4 text-yellow-400" />
+              )}
+            </button>
+
+            {/* CTA Book Button */}
+            <Link
+              href="/reservas"
+              className="bg-saveva-orange hover:bg-saveva-orange/95 text-white px-5 py-2.5 rounded-xl font-display font-bold text-sm shadow-sm hover:shadow-md transition-all active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-saveva-orange"
+            >
+              {t('bookNow', 'common')}
+            </Link>
+          </div>
+
+          {/* Mobile hamburger button */}
+          <div className="flex lg:hidden items-center space-x-2">
+            {/* Quick Language Toggle on Mobile */}
+            <button
+              onClick={() => setLanguage(language === 'es' ? 'en' : 'es')}
+              className="p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 text-xs font-bold"
+            >
+              {language === 'es' ? 'EN' : 'ES'}
+            </button>
+
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-saveva-orange"
+              aria-expanded={isOpen}
+            >
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Drawer */}
+      <div
+        className={`lg:hidden fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm transition-opacity duration-300 ${
+          isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
+        onClick={() => setIsOpen(false)}
+      >
+        <div
+          className={`absolute top-0 right-0 w-80 max-w-full h-full bg-saveva-blue dark:bg-[#0B1220] p-6 shadow-2xl flex flex-col justify-between transition-transform duration-300 ${
+            isOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div>
+            <div className="flex items-center justify-between pb-6 border-b border-white/10">
+              <div className="flex items-center space-x-2">
+                <span className="font-display font-black text-2xl tracking-wider text-white">
+                  SAVEVA
+                </span>
+                <span className="text-[10px] text-saveva-orange uppercase font-mono tracking-wider font-bold">
+                  Hostal
+                </span>
+              </div>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="p-1.5 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-saveva-orange"
+                aria-label="Cerrar menú"
+              >
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+
+            {/* Navigation links */}
+            <div className="flex flex-col space-y-2 py-6">
+              {navItems.map((item) => {
+                const isActive = pathname === item.path;
+                return (
+                  <Link
+                    key={item.path}
+                    href={item.path}
+                    onClick={() => setIsOpen(false)}
+                    className={`px-4 py-3 rounded-xl text-sm font-bold transition-all ${
+                      isActive
+                        ? 'bg-saveva-orange/20 text-saveva-orange font-bold border-l-4 border-saveva-orange pl-3'
+                        : 'text-white/90 hover:text-white hover:bg-white/10'
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Bottom Settings and Actions */}
+          <div className="space-y-4 pt-6 border-t border-white/10">
+            {/* Quick toggles */}
+            <div className="flex items-center justify-between px-2">
+              <span className="text-sm font-medium text-white/70">Theme / Tema</span>
+              <button
+                onClick={toggleTheme}
+                className="flex items-center space-x-2 px-3 py-1.5 rounded-xl border border-white/20 bg-white/5 hover:bg-white/10 text-white transition-all focus:outline-none focus:ring-2 focus:ring-saveva-orange"
+              >
+                {theme === 'light' ? (
+                  <>
+                    <Sun className="w-4 h-4 text-yellow-400" />
+                    <span className="text-xs font-bold text-white">{language === 'es' ? 'Modo Claro' : 'Light Mode'}</span>
+                  </>
+                ) : (
+                  <>
+                    <Moon className="w-4 h-4 text-saveva-celeste" />
+                    <span className="text-xs font-bold text-white">{language === 'es' ? 'Modo Oscuro' : 'Dark Mode'}</span>
+                  </>
+                )}
+              </button>
+            </div>
+
+            {/* WhatsApp Contact Link */}
+            <a
+              href="https://wa.me/573332627268"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center space-x-2 w-full py-3.5 border border-white/20 bg-white/5 hover:bg-white/10 text-white rounded-xl text-sm font-bold transition-all focus:outline-none"
+            >
+              <svg className="w-4 h-4 fill-current shrink-0 text-[#25D366]" viewBox="0 0 24 24">
+                <path d="M12.003 21.003c-1.602 0-3.115-.413-4.432-1.135l-.317-.174-3.297.865.88-3.21-.192-.305a9.003 9.003 0 0 1-1.464-4.88c0-4.963 4.04-9.003 9.003-9.003 4.963 0 9.003 4.04 9.003 9.003 0 4.963-4.04 9.003-9.003 9.003zm0-19.003C6.486 2 2 6.486 2 12.003c0 1.83.493 3.548 1.353 5.034L2 22l5.127-1.344a9.96 9.96 0 0 0 4.876 1.347C17.516 22.003 22 17.517 22 12.003 22 6.486 17.516 2 12.003 2z" />
+              </svg>
+              <span>{language === 'es' ? 'Contacto WhatsApp' : 'WhatsApp Contact'}</span>
+            </a>
+
+            {/* Orange Main Booking CTA */}
+            <Link
+              href="/reservas"
+              onClick={() => setIsOpen(false)}
+              className="block text-center w-full py-3.5 bg-saveva-orange hover:bg-saveva-orange/95 text-white rounded-xl text-sm font-display font-bold shadow-sm hover:shadow-md transition-all focus:outline-none focus:ring-2 focus:ring-saveva-orange"
+            >
+              {t('bookNow', 'common')}
+            </Link>
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
+}
