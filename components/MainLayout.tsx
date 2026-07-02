@@ -12,7 +12,7 @@ interface MainLayoutProps {
 
 export default function MainLayout({ children }: MainLayoutProps) {
   return (
-    <div className="relative min-h-screen bg-[#FDF5EC] dark:bg-saveva-darkbg text-[#2E2E2E] dark:text-slate-100 flex flex-col justify-between overflow-x-hidden">
+    <div className="relative min-h-screen bg-[#FDF5EC] dark:bg-saveva-blue text-[#2E2E2E] dark:text-slate-100 flex flex-col justify-between overflow-x-hidden">
       {/* Nature Particles background effect */}
       <NatureParticles />
 

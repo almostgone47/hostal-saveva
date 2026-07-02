@@ -74,14 +74,14 @@ export default function Home() {
 
         {/* Bottom Curve Divider */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10">
-          <svg className="relative block w-full h-[50px] fill-slate-50 dark:fill-saveva-darkbg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <svg className="relative block w-full h-[50px] fill-[#FDECE1]/40 dark:fill-saveva-blue" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"></path>
           </svg>
         </div>
       </section>
 
       {/* 2. THE BRAND EXPERIENCE (INTRO) */}
-      <section id="experience-section" className="py-20 bg-slate-50 dark:bg-saveva-darkbg transition-colors">
+      <section id="experience-section" className="py-20 bg-[#FDECE1]/40 dark:bg-saveva-blue transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="font-display font-black text-3xl sm:text-4xl text-saveva-blue dark:text-white tracking-tight mb-4">
@@ -144,7 +144,7 @@ export default function Home() {
       </section>
 
       {/* 3. ALTERNATING IMAGES & TEXT SECTIONS (Inspired by Polylepis.com) */}
-      <section id="features-split-section" className="py-12 bg-white dark:bg-saveva-darkbg/50">
+      <section id="features-split-section" className="py-12 bg-[#FDF5EC] dark:bg-saveva-blue/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
           
           {/* Section A: Rooms */}
@@ -295,7 +295,7 @@ export default function Home() {
       </section>
 
       {/* 4. CHOSEN TESTIMONIALS */}
-      <section id="testimonials-section" className="py-20 bg-slate-50 dark:bg-saveva-darkbg transition-colors">
+      <section id="testimonials-section" className="py-20 bg-[#FDECE1]/40 dark:bg-saveva-blue transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="font-display font-black text-3xl sm:text-4xl text-saveva-blue dark:text-white tracking-tight">
@@ -365,7 +365,7 @@ export default function Home() {
       </section>
 
       {/* 5. INSTAGRAM COMMUNITY BAND */}
-      <section id="instagram-section" className="py-16 bg-white dark:bg-saveva-darkbg/40 border-t border-b border-slate-100 dark:border-slate-800 transition-colors">
+      <section id="instagram-section" className="py-16 bg-[#FDF5EC] dark:bg-saveva-blue/40 border-t border-b border-[#0D2B6B]/10 dark:border-white/10 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-display font-black text-2xl sm:text-3xl text-saveva-blue dark:text-white mb-2">
             {t('instagramTitle', 'home')}

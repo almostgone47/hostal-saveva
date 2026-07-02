@@ -134,7 +134,7 @@ export default function WhatsAppFloatingButton() {
       href={getWhatsAppLink()}
       target="_blank"
       rel="noopener noreferrer"
-      className={`fixed bottom-6 right-6 z-50 flex items-center justify-center w-12 h-12 bg-[#25D366] hover:bg-[#20ba59] text-white rounded-full shadow-lg transition-all duration-300 transform group focus:outline-none focus:ring-4 focus:ring-green-300 dark:focus:ring-green-800 ${
+      className={`fixed bottom-6 right-6 z-30 flex items-center justify-center w-12 h-12 bg-[#25D366] hover:bg-[#20ba59] text-white rounded-full shadow-lg transition-all duration-300 transform group focus:outline-none focus:ring-4 focus:ring-green-300 dark:focus:ring-green-800 ${
         visible
           ? 'opacity-100 scale-100 translate-y-0 pointer-events-auto'
           : 'opacity-0 scale-75 translate-y-16 pointer-events-none'

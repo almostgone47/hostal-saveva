@@ -373,35 +373,37 @@ const dictionaries = {
 };
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguage] = useState<Language>(() => {
-    if (typeof window !== 'undefined') {
-      const savedLang = localStorage.getItem('saveva_lang') as Language;
-      if (savedLang === 'es' || savedLang === 'en') {
-        return savedLang;
-      }
-    }
-    return 'es';
-  });
-
-  const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window !== 'undefined') {
-      const savedTheme = localStorage.getItem('saveva_theme') as Theme;
-      if (savedTheme === 'light' || savedTheme === 'dark') {
-        return savedTheme;
-      }
-    }
-    return 'light';
-  });
-
+  const [language, setLanguage] = useState<Language>('es');
+  const [theme, setTheme] = useState<Theme>('light');
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Apply theme on client mount
-    document.documentElement.classList.toggle('dark', theme === 'dark');
+    // Read from localStorage only after mount on the client
+    const savedLang = localStorage.getItem('saveva_lang') as Language;
+    const savedTheme = localStorage.getItem('saveva_theme') as Theme;
+
+    if (savedTheme === 'light' || savedTheme === 'dark') {
+      document.documentElement.classList.toggle('dark', savedTheme === 'dark');
+    } else {
+      document.documentElement.classList.toggle('dark', false);
+    }
+
     Promise.resolve().then(() => {
+      if (savedLang === 'es' || savedLang === 'en') {
+        setLanguage(savedLang);
+      }
+      if (savedTheme === 'light' || savedTheme === 'dark') {
+        setTheme(savedTheme);
+      }
       setMounted(true);
     });
-  }, [theme]);
+  }, []);
+
+  useEffect(() => {
+    if (mounted) {
+      document.documentElement.classList.toggle('dark', theme === 'dark');
+    }
+  }, [theme, mounted]);
 
   const handleSetLanguage = (lang: Language) => {
     setLanguage(lang);

@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-saveva-blue: #0D2B6B;
   --color-saveva-green: #2E7D32;
@@ -21,7 +23,7 @@ html {
 }
 
 body {
-  @apply text-[#2E2E2E] bg-[#FDF5EC] dark:bg-saveva-darkbg dark:text-slate-100 transition-colors duration-300;
+  @apply text-[#2E2E2E] bg-[#FDF5EC] dark:bg-saveva-blue dark:text-slate-100 transition-colors duration-300;
 }
 
 /* Animations and decorative items */
@@ -76,11 +78,11 @@ body {
 /* custom styles for nature elements */
 .leaf-particle {
   pointer-events: none;
-  opacity: 0.15;
+  opacity: 0.45;
   transition: opacity 0.3s ease;
 }
 
 .dark .leaf-particle {
-  opacity: 0.08;
+  opacity: 0.45;
 }
 

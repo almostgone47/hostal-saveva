@@ -36,11 +36,7 @@ export default function Navbar() {
   return (
     <nav
       id="main-navbar"
-      className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/95 dark:bg-saveva-darkbg/95 shadow-md py-3 backdrop-blur-md border-b border-slate-200/50 dark:border-slate-800/50'
-          : 'bg-white/80 dark:bg-saveva-darkbg/80 md:bg-transparent py-4'
-      }`}
+      className="fixed top-0 left-0 w-full z-40 py-3.5 shadow-md border-b border-slate-200/30 dark:border-white/10 bg-[#FDF5EC] dark:bg-saveva-blue transition-colors duration-300"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
@@ -81,10 +77,10 @@ export default function Navbar() {
                 <Link
                   key={item.path}
                   href={item.path}
-                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-saveva-orange ${
+                  className={`px-3 py-2 rounded-lg text-sm font-bold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-saveva-orange ${
                     isActive
-                      ? 'text-saveva-orange bg-saveva-orange/5 dark:bg-saveva-orange/10 font-bold'
-                      : 'text-slate-700 dark:text-slate-300 hover:text-saveva-orange hover:bg-slate-100 dark:hover:bg-slate-800'
+                      ? 'text-saveva-orange bg-saveva-orange/5 dark:bg-saveva-orange/10 font-black'
+                      : 'text-saveva-blue dark:text-slate-100 hover:text-saveva-orange hover:bg-saveva-blue/5 dark:hover:bg-white/10'
                   }`}
                 >
                   {item.name}
@@ -98,7 +94,7 @@ export default function Navbar() {
             {/* Language toggle */}
             <button
               onClick={() => setLanguage(language === 'es' ? 'en' : 'es')}
-              className="flex items-center space-x-1 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm font-medium text-slate-700 dark:text-slate-300 transition-colors focus:outline-none focus:ring-2 focus:ring-saveva-orange"
+              className="flex items-center space-x-1 px-3 py-1.5 rounded-lg border border-saveva-blue/20 dark:border-white/10 hover:bg-saveva-blue/5 dark:hover:bg-white/10 text-sm font-bold text-saveva-blue dark:text-slate-100 transition-colors focus:outline-none focus:ring-2 focus:ring-saveva-orange"
               title="Toggle Language"
             >
               <Globe className="w-4 h-4 text-saveva-green" />
@@ -108,7 +104,7 @@ export default function Navbar() {
             {/* Theme toggle */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition-colors focus:outline-none focus:ring-2 focus:ring-saveva-orange"
+              className="p-2 rounded-lg border border-saveva-blue/20 dark:border-white/10 hover:bg-saveva-blue/5 dark:hover:bg-white/10 text-saveva-blue dark:text-slate-100 transition-colors focus:outline-none focus:ring-2 focus:ring-saveva-orange"
               title="Toggle Theme"
             >
               {theme === 'light' ? (
@@ -132,17 +128,17 @@ export default function Navbar() {
             {/* Quick Language Toggle on Mobile */}
             <button
               onClick={() => setLanguage(language === 'es' ? 'en' : 'es')}
-              className="p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 text-xs font-bold"
+              className="p-2.5 rounded-xl border border-transparent bg-saveva-blue/10 dark:bg-white/10 text-saveva-blue dark:text-white text-xs font-black shadow-sm transition-all hover:bg-saveva-blue/20 dark:hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-saveva-orange"
             >
               {language === 'es' ? 'EN' : 'ES'}
             </button>
 
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-saveva-orange"
+              className="p-2.5 rounded-xl border border-transparent bg-saveva-blue text-white dark:bg-white dark:text-saveva-blue shadow-md transition-all hover:bg-saveva-blue/90 dark:hover:bg-white/90 active:scale-95 focus:outline-none focus:ring-2 focus:ring-saveva-orange"
               aria-expanded={isOpen}
             >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
@@ -156,7 +152,7 @@ export default function Navbar() {
         onClick={() => setIsOpen(false)}
       >
         <div
-          className={`absolute top-0 right-0 w-80 max-w-full h-full bg-saveva-blue dark:bg-[#0B1220] p-6 shadow-2xl flex flex-col justify-between transition-transform duration-300 ${
+          className={`absolute top-0 right-0 w-80 max-w-full h-full bg-saveva-blue dark:bg-saveva-blue p-6 shadow-2xl flex flex-col justify-between transition-transform duration-300 ${
             isOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
           onClick={(e) => e.stopPropagation()}
