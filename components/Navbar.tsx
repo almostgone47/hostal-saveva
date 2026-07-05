@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Sun, Moon, Globe, MessageSquare } from 'lucide-react';
 import { useApp } from '@/context/AppContext';
@@ -42,22 +43,16 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 group focus:outline-none focus:ring-2 focus:ring-saveva-orange rounded-lg p-1">
-            {/* Hummingbird Logo SVG */}
-            <div className="relative w-10 h-10 bg-saveva-orange/10 dark:bg-saveva-orange/20 rounded-full flex items-center justify-center text-saveva-orange group-hover:scale-105 transition-transform">
-              <svg
-                viewBox="0 0 64 64"
-                fill="currentColor"
-                className="w-7 h-7"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                {/* Custom hummingbird vector design */}
-                <path d="M12 28 C16 28 22 24 26 18 C30 12 30 6 28 4 C26 2 20 2 16 6 C12 10 10 18 12 28 Z" fill="#3FA9F5" />
-                <path d="M28 22 C34 22 42 30 46 38 C50 46 48 52 44 54 C40 56 34 52 30 44 C26 36 24 28 28 22 Z" fill="#2E7D32" />
-                <path d="M14 18 C14 18 20 8 28 8 C36 8 46 16 48 24 C50 32 40 38 32 38 C24 38 14 26 14 18 Z" fill="#FF7A00" />
-                <circle cx="26" cy="12" r="2" fill="white" />
-                {/* Beak */}
-                <path d="M14 6 L2 2" stroke="#FF7A00" strokeWidth="2.5" strokeLinecap="round" />
-              </svg>
+            {/* Real SAVEVA hummingbird logo */}
+            <div className="relative w-10 h-10 flex items-center justify-center group-hover:scale-105 transition-transform">
+              <Image
+                src="/saveva-logo-icon.png"
+                alt="Logo SAVEVA"
+                fill
+                className="object-contain"
+                sizes="40px"
+                priority
+              />
             </div>
             <div className="flex flex-col">
               <span className="font-display font-black text-2xl tracking-wider text-saveva-blue dark:text-white leading-none">
