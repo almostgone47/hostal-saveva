@@ -42,25 +42,17 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 group focus:outline-none focus:ring-2 focus:ring-saveva-orange rounded-lg p-1">
-            {/* Real SAVEVA hummingbird logo */}
-            <div className="relative w-10 h-10 flex items-center justify-center group-hover:scale-105 transition-transform">
+          <Link href="/" className="flex items-center group focus:outline-none focus:ring-2 focus:ring-saveva-orange rounded-lg p-1">
+            {/* Real SAVEVA full logo (icon + wordmark) */}
+            <div className="relative h-11 sm:h-12 w-[150px] sm:w-[170px] group-hover:scale-105 transition-transform">
               <Image
-                src="/saveva-logo-icon.png"
-                alt="Logo SAVEVA"
+                src="/saveva-logo-full.png"
+                alt="SAVEVA Hostal Medellín"
                 fill
-                className="object-contain"
-                sizes="40px"
+                className="object-contain object-left"
+                sizes="170px"
                 priority
               />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-display font-black text-2xl tracking-wider text-saveva-blue dark:text-white leading-none">
-                SAVEVA
-              </span>
-              <span className="text-[10px] uppercase font-mono tracking-widest text-saveva-green dark:text-saveva-celeste leading-none mt-1">
-                Hostal · Medellín
-              </span>
             </div>
           </Link>
 
@@ -154,13 +146,16 @@ export default function Navbar() {
         >
           <div>
             <div className="flex items-center justify-between pb-6 border-b border-white/10">
-              <div className="flex items-center space-x-2">
-                <span className="font-display font-black text-2xl tracking-wider text-white">
-                  SAVEVA
-                </span>
-                <span className="text-[10px] text-saveva-orange uppercase font-mono tracking-wider font-bold">
-                  Hostal
-                </span>
+              <div className="flex items-center">
+                <div className="relative h-9 w-9">
+                  <Image
+                    src="/saveva-logo-icon.png"
+                    alt="SAVEVA"
+                    fill
+                    className="object-contain"
+                    sizes="36px"
+                  />
+                </div>
               </div>
               <button
                 onClick={() => setIsOpen(false)}
