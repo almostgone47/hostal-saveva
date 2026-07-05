@@ -86,7 +86,7 @@ export default function StayStudyPage() {
           {/* Right Column: Imagery showcase */}
           <div className="lg:col-span-5 relative h-[450px] rounded-3xl overflow-hidden shadow-2xl">
             <Image
-              src="https://picsum.photos/seed/saveva-nomad/800/1000"
+              src="/gallery/wifi-saveva.jpg"
               alt="Nómada digital en SAVEVA Hostal"
               fill
               className="object-cover"
@@ -183,7 +183,7 @@ export default function StayStudyPage() {
           </div>
           <div className="md:w-1/3 relative h-64 w-full md:w-auto rounded-2xl overflow-hidden self-center border border-white/10 shrink-0">
             <Image
-              src="https://picsum.photos/seed/saveva-university/600/400"
+              src="/gallery/udea-real.jpg"
               alt="Universidad en Medellín"
               fill
               className="object-cover"
