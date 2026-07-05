@@ -4,7 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { useApp } from '@/context/AppContext';
 import MainLayout from '@/components/MainLayout';
-import { Compass, MapPin, Calendar, Heart, ArrowUpRight, CheckCircle, Sparkles } from 'lucide-react';
+import { Compass, MapPin, Calendar, Heart, ArrowUpRight, CheckCircle, Sparkles, Bike, MessageCircle } from 'lucide-react';
 
 export default function ExperienciasPage() {
   const { t, language } = useApp();
@@ -152,6 +152,88 @@ export default function ExperienciasPage() {
                 <span className="bg-slate-100 dark:bg-slate-900 px-3 py-1.5 rounded-xl border border-slate-200/50 dark:border-slate-800/50">#LanguageExchange</span>
                 <span className="bg-slate-100 dark:bg-slate-900 px-3 py-1.5 rounded-xl border border-slate-200/50 dark:border-slate-800/50">#SalsaClass</span>
                 <span className="bg-slate-100 dark:bg-slate-900 px-3 py-1.5 rounded-xl border border-slate-200/50 dark:border-slate-800/50">#SAVEVA_BBQ</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Pillar 4: E-Bikes & 3 Climate Zones Tour */}
+          <div className="bg-gradient-to-br from-saveva-blue to-slate-900 text-white rounded-3xl p-6 sm:p-10 md:p-12 overflow-hidden relative">
+            <div className="absolute top-4 left-4 sm:top-6 sm:left-6 bg-saveva-orange text-white px-4 py-1 rounded-full text-xs font-mono uppercase font-black z-20">
+              {language === 'es' ? 'Tour de 1 Día' : '1-Day Tour'}
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center relative z-10 pt-10">
+              {/* Image gallery */}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="relative h-72 sm:h-80 rounded-2xl overflow-hidden shadow-xl col-span-1">
+                  <Image
+                    src="/tour-cold-forest.jpg"
+                    alt="Bicicleta eléctrica en el clima frío del bosque de niebla"
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-700"
+                    sizes="(max-width: 1024px) 50vw, 25vw"
+                  />
+                </div>
+                <div className="relative h-72 sm:h-80 rounded-2xl overflow-hidden shadow-xl col-span-1">
+                  <Image
+                    src="/tour-waterfall.jpg"
+                    alt="Clima subtropical con cascadas y bosque nublado"
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-700"
+                    sizes="(max-width: 1024px) 50vw, 25vw"
+                  />
+                </div>
+              </div>
+
+              {/* Text block */}
+              <div className="space-y-4">
+                <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center text-saveva-celeste">
+                  <Bike className="w-6 h-6" />
+                </div>
+                <h2 className="font-display font-black text-2xl sm:text-3xl tracking-tight">
+                  {t('pilar4Title', 'experiencias')}
+                </h2>
+                <p className="text-slate-300 leading-relaxed text-sm sm:text-base">
+                  {t('pilar4Desc', 'experiencias')}
+                </p>
+
+                <div className="bg-white/5 border border-white/10 rounded-2xl p-5 space-y-2">
+                  {[
+                    language === 'es' ? 'Bicicletas eléctricas, transporte, alimentación y guía turístico' : 'E-bikes, transport, catering & tour guide',
+                    language === 'es' ? 'Ida y vuelta en un escarabajo Volkswagen del año 1961' : 'Round trip in a 1961 Volkswagen Beetle',
+                    language === 'es' ? 'Conoce nuestra fundación y sus programas de nutrición y salud' : "Get to know our foundation's nutrition & health programs",
+                  ].map((item, idx) => (
+                    <div key={idx} className="flex items-start space-x-2 text-sm text-slate-200">
+                      <CheckCircle className="w-4 h-4 text-saveva-green shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex flex-wrap items-center gap-3 pt-2">
+                  <span className="font-display font-black text-xl text-saveva-celeste">
+                    {t('pilar4Price', 'experiencias')}
+                  </span>
+                </div>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  {t('pilar4Voucher', 'experiencias')}
+                </p>
+
+                <a
+                  href={`https://wa.me/573332627268?text=${encodeURIComponent('¡Hola SAVEVA! 🐦 Quiero reservar el Tour de Bicicletas Eléctricas y los 3 Climas.')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-2 bg-saveva-orange hover:bg-saveva-orange/90 text-white font-display font-bold text-sm px-6 py-3.5 rounded-xl shadow-sm transition-colors mt-2"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span>{language === 'es' ? 'Reservar por WhatsApp' : 'Book via WhatsApp'}</span>
+                </a>
+
+                <div className="pt-2 flex flex-wrap gap-2 text-xs font-mono font-bold text-slate-300">
+                  <span className="bg-white/10 px-3 py-1.5 rounded-xl border border-white/10">#EBikes</span>
+                  <span className="bg-white/10 px-3 py-1.5 rounded-xl border border-white/10">#3ClimateZones</span>
+                  <span className="bg-white/10 px-3 py-1.5 rounded-xl border border-white/10">#Waterfalls</span>
+                </div>
               </div>
             </div>
           </div>
