@@ -17,13 +17,12 @@ export default function Home() {
         {/* Background Image with elegant overlay */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://picsum.photos/seed/saveva-front/1920/1200"
-            alt="SAVEVA Hostal Medellín"
+            src="/hero-saveva-house.jpg"
+            alt="Fachada del Hostal SAVEVA en Laureles Estadio, Medellín"
             fill
             priority
             className="object-cover opacity-60 scale-105 animate-float"
             sizes="100vw"
-            referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-slate-950/40"></div>
           
@@ -151,7 +150,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative h-[400px] rounded-3xl overflow-hidden shadow-xl order-last lg:order-first">
               <Image
-                src="https://picsum.photos/seed/saveva-room/800/600"
+                src="/rooms/Habitacion-16-Casa-Amarilla-1024x719.jpeg"
                 alt="Habitaciones en SAVEVA Hostal"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-700"
@@ -215,7 +214,7 @@ export default function Home() {
                 </div>
                 <div className="flex items-center space-x-3 text-sm text-slate-700 dark:text-slate-300">
                   <Check className="w-5 h-5 text-saveva-orange shrink-0" />
-                  <span>{language === 'es' ? 'Capacidad combinada para albergar hasta 25 personas.' : 'Combined configuration to host up to 25 guests.'}</span>
+                  <span>{language === 'es' ? 'Grupos de 3 a 8 personas por apartaestudio.' : 'Groups of 3 to 8 people per apartaestudio.'}</span>
                 </div>
               </div>
               <div className="pt-4">
@@ -230,7 +229,7 @@ export default function Home() {
             </div>
             <div className="relative h-[400px] rounded-3xl overflow-hidden shadow-xl">
               <Image
-                src="https://picsum.photos/seed/saveva-apart/800/600"
+                src="/rooms/20240831_150457-1024x576.jpeg"
                 alt="Apartaestudios en SAVEVA"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-700"
