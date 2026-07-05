@@ -205,7 +205,7 @@ export default function ApartaestudiosPage() {
 
           <div className="relative h-60 rounded-2xl overflow-hidden self-center border border-white/10 z-10">
             <Image
-              src="https://picsum.photos/seed/medellin-estadio/600/400"
+              src="/gallery/estadio-real.jpg"
               alt="Estadio Atanasio Girardot Medellín"
               fill
               className="object-cover"
