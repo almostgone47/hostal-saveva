@@ -246,7 +246,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative h-[400px] rounded-3xl overflow-hidden shadow-xl order-last lg:order-first">
               <Image
-                src="/gallery/patio-lectura.jpg"
+                src="/rooms/Copia-de-5-1024x576.jpeg"
                 alt="Stay and study en SAVEVA Hostal"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-700"
@@ -384,7 +384,7 @@ export default function Home() {
                   className="relative group block aspect-square rounded-2xl overflow-hidden shadow-sm"
                 >
                   <Image
-                    src={['/hero-saveva-house.jpg', '/gallery/comuna13.jpg', '/gallery/juegos-mesa.jpg', '/tour-waterfall.jpg', '/gallery/medellin-aerea.jpg', '/gallery/estadio-real.jpg'][i - 1]}
+                    src={['/hero-saveva-house.jpg', '/tour-cold-forest.jpg', '/rooms/20240831_125720-1024x576.jpeg', '/tour-waterfall.jpg', '/rooms/Habitacion-17-Casa-Amarilla_-1024x576.jpeg', '/rooms/20240831_150457-1024x576.jpeg'][i - 1]}
                     alt={`SAVEVA Instagram feed ${i}`}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
