@@ -123,10 +123,6 @@ export default function StayStudyPage() {
                 <h3 className="font-display font-bold text-lg text-saveva-blue dark:text-white">
                   {t('rateWeeklyDesc', 'stay_study')}
                 </h3>
-                <div className="font-mono text-3xl font-black text-slate-800 dark:text-white pt-2">
-                  {language === 'es' ? 'COP 250.000' : 'USD 65'}
-                  <span className="text-xs text-slate-400 font-normal ml-1">/ {t('weeklyLabel', 'stay_study')}</span>
-                </div>
               </div>
               <div className="pt-6">
                 <a
@@ -154,10 +150,6 @@ export default function StayStudyPage() {
                 <h3 className="font-display font-bold text-lg text-saveva-blue dark:text-white">
                   {t('rateMonthlyDesc', 'stay_study')}
                 </h3>
-                <div className="font-mono text-3xl font-black text-slate-800 dark:text-white pt-2">
-                  {language === 'es' ? 'COP 850.000' : 'USD 220'}
-                  <span className="text-xs text-slate-400 font-normal ml-1">/ {t('monthlyLabel', 'stay_study')}</span>
-                </div>
               </div>
               <div className="pt-6">
                 <a
