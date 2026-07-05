@@ -147,13 +147,13 @@ export default function Navbar() {
           <div>
             <div className="flex items-center justify-between pb-6 border-b border-white/10">
               <div className="flex items-center">
-                <div className="relative h-9 w-9">
+                <div className="relative h-10 w-[140px]">
                   <Image
-                    src="/saveva-logo-icon.png"
+                    src="/saveva-logo-white.png"
                     alt="SAVEVA"
                     fill
-                    className="object-contain"
-                    sizes="36px"
+                    className="object-contain object-left"
+                    sizes="140px"
                   />
                 </div>
               </div>

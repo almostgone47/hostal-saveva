@@ -16,17 +16,16 @@ export default function Footer() {
           
           {/* Brand Presentation */}
           <div className="space-y-4">
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="relative w-8 h-8">
+            <Link href="/" className="flex items-center">
+              <div className="relative h-11 w-[160px]">
                 <Image
-                  src="/saveva-logo-icon.png"
-                  alt="Logo SAVEVA"
+                  src="/saveva-logo-white.png"
+                  alt="SAVEVA Hostal Medellín"
                   fill
-                  className="object-contain"
-                  sizes="32px"
+                  className="object-contain object-left"
+                  sizes="160px"
                 />
               </div>
-              <span className="font-display font-black text-xl tracking-wider text-white">SAVEVA</span>
             </Link>
             <p className="text-sm text-slate-400">
               {t('heroSub', 'home')}
