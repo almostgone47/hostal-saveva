@@ -246,7 +246,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative h-[400px] rounded-3xl overflow-hidden shadow-xl order-last lg:order-first">
               <Image
-                src="/rooms/Copia-de-5-1024x576.jpeg"
+                src="/rooms/Habitacion-17-Casa-Amarilla_-1024x576.jpeg"
                 alt="Stay and study en SAVEVA Hostal"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-700"
