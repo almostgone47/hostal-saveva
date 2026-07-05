@@ -61,7 +61,7 @@ export default function NosotrosPage() {
           {/* Right Column: Narrative photo */}
           <div className="lg:col-span-6 relative h-[420px] rounded-3xl overflow-hidden shadow-2xl">
             <Image
-              src="https://picsum.photos/seed/saveva-team/800/600"
+              src="/hero-saveva-house.jpg"
               alt="SAVEVA Hostal Team Medellín"
               fill
               className="object-cover"
