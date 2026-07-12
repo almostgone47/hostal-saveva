@@ -26,6 +26,7 @@ const dictionaries = {
       experiences: 'Experiencias',
       booking: 'Reservas',
       contact: 'Contacto',
+      map: 'Mapa',
     },
     common: {
       bookNow: 'Reservar ahora',
@@ -183,6 +184,11 @@ const dictionaries = {
       errorCheckinPast: 'No se pueden seleccionar fechas del pasado.',
       waTemplate: '¡Hola SAVEVA! 🐦 Quiero solicitar una reserva:\n\n👤 *Nombre:* {name}\n📅 *Check-in:* {checkin}\n📅 *Check-out:* {checkout}\n👥 *Huéspedes:* {guests}\n🏠 *Alojamiento:* {type}\n💬 *Notas:* {comments}',
     },
+    mapa: {
+      title: 'Explora Laureles desde SAVEVA',
+      sub: 'Ubica el hostal, activa tu ubicación en tiempo real y descubre las rutas caminando hacia el metro, el estadio y el centro comercial.',
+      filtersHint: 'Filtra lo que quieres ver en el mapa:',
+    },
     contacto: {
       title: '¡Escríbenos, queremos conocerte!',
       sub: 'Resolveremos todas tus preguntas en minutos. Estamos ubicados en la mejor zona de Laureles Estadio.',
@@ -207,6 +213,7 @@ const dictionaries = {
       experiences: 'Experiences',
       booking: 'Booking',
       contact: 'Contact',
+      map: 'Map',
     },
     common: {
       bookNow: 'Book Now',
@@ -363,6 +370,11 @@ const dictionaries = {
       errorCheckoutBefore: 'Check-out date cannot be before check-in.',
       errorCheckinPast: 'You cannot select dates in the past.',
       waTemplate: 'Hello SAVEVA! 🐦 I would like to request a booking:\n\n👤 *Name:* {name}\n📅 *Check-in:* {checkin}\n📅 *Check-out:* {checkout}\n👥 *Guests:* {guests}\n🏠 *Accommodation:* {type}\n💬 *Notes:* {comments}',
+    },
+    mapa: {
+      title: 'Explore Laureles from SAVEVA',
+      sub: 'Locate the hostel, enable your real-time location, and discover the walking routes to the metro, the stadium, and the mall.',
+      filtersHint: 'Filter what you want to see on the map:',
     },
     contacto: {
       title: 'Get in Touch with Us!',
