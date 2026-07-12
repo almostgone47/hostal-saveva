@@ -1,9 +1,20 @@
 'use client';
 
 import React, { useState } from 'react';
+import dynamic from 'next/dynamic';
 import { useApp } from '@/context/AppContext';
 import MainLayout from '@/components/MainLayout';
 import { Mail, MapPin, Phone, Instagram, Send, MessageSquare, Sparkles } from 'lucide-react';
+
+// Leaflet depende de `window`, así que el mapa se carga solo en el cliente.
+const InteractiveMap = dynamic(() => import('@/components/InteractiveMap'), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-[320px] rounded-2xl bg-slate-100 dark:bg-slate-900 animate-pulse flex items-center justify-center text-slate-400 text-sm">
+      Cargando mapa...
+    </div>
+  ),
+});
 
 export default function ContactoPage() {
   const { t, language } = useApp();
@@ -181,20 +192,8 @@ export default function ContactoPage() {
                 {t('locationDesc', 'contacto')}
               </p>
 
-              {/* Google Maps Embed Frame */}
-              <div className="relative w-full h-[320px] rounded-2xl overflow-hidden shadow-inner border border-slate-100 dark:border-slate-800 bg-slate-100">
-                <iframe
-                  id="google-maps-frame"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0594347717467!2d-75.59473852417711!3d6.255909226194301!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4428ffa2b2b1a5%3A0xe54ef85e2b0a969f!2sLaureles%20-%20Estadio%2C%20Medell%C3%ADn%2C%20Antioquia!5e0!3m2!1ses!2sco!4v1719900000000!5m2!1ses!2sco"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen={false}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="SAVEVA Hostal Medellín Map Location"
-                ></iframe>
-              </div>
+              {/* Mapa interactivo (Leaflet + OpenStreetMap) */}
+              <InteractiveMap height={340} />
             </div>
           </div>
 
