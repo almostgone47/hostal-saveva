@@ -30,6 +30,7 @@ export default function Navbar() {
     { name: t('stayStudy', 'nav'), path: '/stay-study' },
     { name: t('about', 'nav'), path: '/nosotros' },
     { name: t('experiences', 'nav'), path: '/experiencias' },
+    { name: t('map', 'nav'), path: '/mapa' },
     { name: t('booking', 'nav'), path: '/reservas' },
     { name: t('contact', 'nav'), path: '/contacto' },
   ];
