@@ -1,6 +1,0 @@
-{
-  "name": "SAVEVA Hostal",
-  "description": "Hostal en el barrio Laureles Estadio, Medellín, Colombia. Un espacio de naturaleza, aventura y comunidad para viajeros, nómadas y estudiantes.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
