@@ -10,7 +10,7 @@ export default function Footer() {
   const { t } = useApp();
 
   return (
-    <footer id="main-footer" className="bg-slate-900 text-slate-300 pt-16 pb-8 border-t border-slate-800 relative z-20">
+    <footer id="main-footer" className="bg-white text-slate-600 pt-16 pb-8 border-t border-slate-200 relative z-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-12 border-b border-slate-800">
           
@@ -19,7 +19,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center">
               <div className="relative h-11 w-[160px]">
                 <Image
-                  src="/saveva-logo-white.png"
+                  src="/saveva-logo-new.png"
                   alt="SAVEVA Hostal Medellín"
                   fill
                   className="object-contain object-left"
@@ -87,10 +87,10 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/reservas" className="hover:text-saveva-orange transition-colors flex items-center group">
+                <a href="https://hostal-saveva.roomleo.com/book" target="_blank" rel="noopener noreferrer" className="hover:text-saveva-orange transition-colors flex items-center group">
                   <span className="mr-1 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
                   {t('booking', 'nav')}
-                </Link>
+                </a>
               </li>
               <li>
                 <Link href="/contacto" className="hover:text-saveva-orange transition-colors flex items-center group">

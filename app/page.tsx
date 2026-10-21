@@ -314,9 +314,7 @@ export default function Home() {
                   : '"I arrived in Medellin alone for a week and ended up staying a whole month. The community vibe at SAVEVA is crazy, I made friends from France, Germany, and Colombia on day one. The beds are super comfortable and the WiFi is fast for working."'}
               </p>
               <div className="flex items-center space-x-3">
-                <div className="relative w-11 h-11 rounded-full overflow-hidden">
-                  <Image src="https://picsum.photos/seed/user1/100/100" alt="Sarah" fill className="object-cover" referrerPolicy="no-referrer" />
-                </div>
+                <div className="w-11 h-11 rounded-full bg-saveva-cream flex items-center justify-center text-saveva-blue font-bold">SJ</div>
                 <div>
                   <h4 className="font-bold text-sm text-saveva-blue dark:text-white">Sarah Jenkins</h4>
                   <p className="text-xs text-slate-400">Digital Nomad, USA</p>
@@ -332,9 +330,7 @@ export default function Home() {
                   : '"Best hostel in Laureles. A very clean place with a spacious kitchen, amazing BBQs on Saturdays, and a team that helps you with everything you need in Medellin. Perfect location close to restaurants, parks, and the metro."'}
               </p>
               <div className="flex items-center space-x-3">
-                <div className="relative w-11 h-11 rounded-full overflow-hidden">
-                  <Image src="https://picsum.photos/seed/user2/100/100" alt="Lucas" fill className="object-cover" referrerPolicy="no-referrer" />
-                </div>
+                <div className="w-11 h-11 rounded-full bg-saveva-cream flex items-center justify-center text-saveva-blue font-bold">LM</div>
                 <div>
                   <h4 className="font-bold text-sm text-saveva-blue dark:text-white">Lucas Moreau</h4>
                   <p className="text-xs text-slate-400">Backpacker, France</p>
@@ -350,9 +346,7 @@ export default function Home() {
                   : '"We rented a full studio apartment with my track and field group and it was awesome. We had our own private entrance and kitchens, but still enjoyed the hostel BBQs and game nights. Highly recommended for sports delegations!"'}
               </p>
               <div className="flex items-center space-x-3">
-                <div className="relative w-11 h-11 rounded-full overflow-hidden">
-                  <Image src="https://picsum.photos/seed/user3/100/100" alt="Mateo" fill className="object-cover" referrerPolicy="no-referrer" />
-                </div>
+                <div className="w-11 h-11 rounded-full bg-saveva-cream flex items-center justify-center text-saveva-blue font-bold">MA</div>
                 <div>
                   <h4 className="font-bold text-sm text-saveva-blue dark:text-white">Mateo Gómez</h4>
                   <p className="text-xs text-slate-400">Deportista, Colombia</p>

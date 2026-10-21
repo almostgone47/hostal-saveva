@@ -26,12 +26,8 @@ export default function Navbar() {
   const navItems = [
     { name: t('home', 'nav'), path: '/' },
     { name: t('rooms', 'nav'), path: '/habitaciones' },
-    { name: t('apartments', 'nav'), path: '/apartaestudios' },
-    { name: t('stayStudy', 'nav'), path: '/stay-study' },
-    { name: t('about', 'nav'), path: '/nosotros' },
     { name: t('experiences', 'nav'), path: '/experiencias' },
     { name: t('map', 'nav'), path: '/mapa' },
-    { name: t('booking', 'nav'), path: '/reservas' },
     { name: t('contact', 'nav'), path: '/contacto' },
   ];
 
@@ -47,7 +43,7 @@ export default function Navbar() {
             {/* Real SAVEVA full logo (icon + wordmark) - swaps for dark mode */}
             <div className="relative h-11 sm:h-12 w-[150px] sm:w-[170px] group-hover:scale-105 transition-transform">
               <Image
-                src={theme === 'dark' ? '/saveva-logo-white.png' : '/saveva-logo-full.png'}
+                src="/saveva-logo-new.png"
                 alt="SAVEVA Hostal Medellín"
                 fill
                 className="object-contain object-left"
@@ -104,7 +100,7 @@ export default function Navbar() {
 
             {/* CTA Book Button */}
             <Link
-              href="/reservas"
+              href="https://hostal-saveva.roomleo.com/book"
               className="bg-saveva-orange hover:bg-saveva-orange/95 text-white px-5 py-2.5 rounded-xl font-display font-bold text-sm shadow-sm hover:shadow-md transition-all active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-saveva-orange"
             >
               {t('bookNow', 'common')}
@@ -140,7 +136,7 @@ export default function Navbar() {
         onClick={() => setIsOpen(false)}
       >
         <div
-          className={`absolute top-0 right-0 w-80 max-w-full h-full bg-saveva-blue dark:bg-saveva-blue p-6 shadow-2xl flex flex-col justify-between transition-transform duration-300 ${
+          className={`absolute top-0 right-0 w-80 max-w-full h-full bg-white p-6 shadow-2xl flex flex-col justify-between transition-transform duration-300 ${
             isOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
           onClick={(e) => e.stopPropagation()}
@@ -227,7 +223,7 @@ export default function Navbar() {
 
             {/* Orange Main Booking CTA */}
             <Link
-              href="/reservas"
+              href="https://hostal-saveva.roomleo.com/book"
               onClick={() => setIsOpen(false)}
               className="block text-center w-full py-3.5 bg-saveva-orange hover:bg-saveva-orange/95 text-white rounded-xl text-sm font-display font-bold shadow-sm hover:shadow-md transition-all focus:outline-none focus:ring-2 focus:ring-saveva-orange"
             >
