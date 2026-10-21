@@ -17,13 +17,13 @@ export default function Footer() {
           {/* Brand Presentation */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center">
-              <div className="relative h-11 w-[160px]">
+              <div className="relative h-32 w-32 sm:h-36 sm:w-36">
                 <Image
                   src="/saveva-logo-new.png"
                   alt="SAVEVA Hostal Medellín"
                   fill
                   className="object-contain object-left"
-                  sizes="160px"
+                  sizes="144px"
                 />
               </div>
             </Link>

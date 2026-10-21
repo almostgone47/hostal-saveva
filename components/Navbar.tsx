@@ -41,13 +41,13 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center group focus:outline-none focus:ring-2 focus:ring-saveva-orange rounded-lg p-1">
             {/* Real SAVEVA full logo (icon + wordmark) - swaps for dark mode */}
-            <div className="relative h-11 sm:h-12 w-[150px] sm:w-[170px] group-hover:scale-105 transition-transform">
+            <div className="relative h-14 w-14 sm:h-16 sm:w-16 group-hover:scale-105 transition-transform">
               <Image
                 src="/saveva-logo-new.png"
                 alt="SAVEVA Hostal Medellín"
                 fill
                 className="object-contain object-left"
-                sizes="170px"
+                sizes="60px"
                 priority
               />
             </div>
