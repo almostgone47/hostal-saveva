@@ -23,7 +23,7 @@ html {
 }
 
 body {
-  @apply text-[#2E2E2E] bg-[#FDF5EC] dark:bg-saveva-blue dark:text-slate-100 transition-colors duration-300;
+  @apply text-[#2E2E2E] bg-white transition-colors duration-300;
 }
 
 /* Animations and decorative items */
