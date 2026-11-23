@@ -35,14 +35,15 @@ export default function Navbar() {
   return (
     <nav
       id="main-navbar"
-      className="fixed top-0 left-0 w-full z-40 py-3.5 shadow-md border-b border-slate-200/30 dark:border-white/10 bg-[#FDF5EC] dark:bg-saveva-blue transition-colors duration-300"
+      className="fixed top-0 left-0 w-full z-40 py-3.5 shadow-md border-b border-slate-200/30 dark:border-white/10 bg-saveva-logobg dark:bg-saveva-blue transition-colors duration-300"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center group focus:outline-none focus:ring-2 focus:ring-saveva-orange rounded-lg p-1">
             {/* Real SAVEVA full logo (icon + wordmark) - swaps for dark mode */}
-            <div className="relative h-14 w-14 sm:h-16 sm:w-16 group-hover:scale-105 transition-transform">
+            {/* Light mode: logo has a baked-in cream background that matches bg-saveva-logobg */}
+            <div className="relative h-14 w-14 sm:h-16 sm:w-16 group-hover:scale-105 transition-transform dark:hidden">
               <Image
                 src="/saveva-logo-new.png"
                 alt="SAVEVA Hostal Medellín"
@@ -50,6 +51,16 @@ export default function Navbar() {
                 className="object-contain object-left"
                 sizes="60px"
                 priority
+              />
+            </div>
+            {/* Dark mode: transparent white logo so no cream box shows on the blue navbar */}
+            <div className="relative h-12 w-[140px] sm:h-14 sm:w-[160px] group-hover:scale-105 transition-transform hidden dark:block">
+              <Image
+                src="/saveva-logo-white.png"
+                alt="SAVEVA Hostal Medellín"
+                fill
+                className="object-contain object-left"
+                sizes="160px"
               />
             </div>
           </Link>
@@ -102,7 +113,7 @@ export default function Navbar() {
             {/* CTA Book Button */}
             <Link
               href="https://hostal-saveva.roomleo.com/book"
-              className="bg-saveva-orange hover:bg-saveva-orange/95 text-white px-5 py-2.5 rounded-xl font-display font-bold text-sm shadow-sm hover:shadow-md transition-all active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-saveva-orange"
+              className="whitespace-nowrap bg-saveva-orange hover:bg-saveva-orange/95 text-white px-5 py-2.5 rounded-xl font-display font-bold text-sm shadow-sm hover:shadow-md transition-all active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-saveva-orange"
             >
               {t('bookNow', 'common')}
             </Link>

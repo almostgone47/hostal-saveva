@@ -10,7 +10,7 @@ export default function Footer() {
   const { t } = useApp();
 
   return (
-    <footer id="main-footer" className="bg-white text-slate-600 pt-16 pb-8 border-t border-slate-200 relative z-20">
+    <footer id="main-footer" className="bg-saveva-logobg text-slate-600 pt-16 pb-8 border-t border-slate-200 relative z-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-12 border-b border-slate-800">
           

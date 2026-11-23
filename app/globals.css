@@ -9,6 +9,8 @@
   --color-saveva-orange: #FF7A00;
   --color-saveva-celeste: #3FA9F5;
   --color-saveva-cream: #FDECE1;
+  /* Background baked into saveva-logo-new.png; navbar/footer use it so the logo blends in. */
+  --color-saveva-logobg: #FFFCF5;
   --color-saveva-darkbg: #0B1220;
   --color-saveva-carddark: #151F32;
   
