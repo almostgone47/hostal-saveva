@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import { useApp } from '@/context/AppContext';
 import MainLayout from '@/components/MainLayout';
 import { Mail, MapPin, Phone, Instagram, Send, MessageSquare, Sparkles } from 'lucide-react';
@@ -194,6 +195,10 @@ export default function ContactoPage() {
 
               {/* Mapa interactivo (Leaflet + OpenStreetMap) */}
               <InteractiveMap height={340} />
+              <Link href="/mapa" className="inline-flex items-center gap-1.5 text-xs font-semibold text-saveva-blue dark:text-saveva-celeste hover:text-saveva-orange">
+                <MapPin className="w-3.5 h-3.5" />
+                {language === 'es' ? 'Ver mapa completo del barrio →' : 'See the full neighbourhood map →'}
+              </Link>
             </div>
           </div>
 

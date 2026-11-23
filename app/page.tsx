@@ -139,6 +139,16 @@ export default function Home() {
               </p>
             </div>
           </div>
+
+          <div className="text-center mt-10">
+            <Link
+              href="/nosotros"
+              className="inline-flex items-center gap-2 font-display font-bold text-sm text-saveva-blue dark:text-white border border-saveva-blue/20 dark:border-white/20 hover:border-saveva-orange hover:text-saveva-orange px-6 py-3 rounded-xl transition-colors"
+            >
+              {language === 'es' ? 'Conoce nuestra historia y valores' : 'Our story and values'}
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -214,7 +224,7 @@ export default function Home() {
                 </div>
                 <div className="flex items-center space-x-3 text-sm text-slate-700 dark:text-slate-300">
                   <Check className="w-5 h-5 text-saveva-orange shrink-0" />
-                  <span>{language === 'es' ? 'Grupos de 3 a 8 personas por apartaestudio.' : 'Groups of 3 to 8 people per apartaestudio.'}</span>
+                  <span>{language === 'es' ? 'Hasta 4 personas por apartaestudio, o los dos juntos para 8.' : 'Up to 4 people per studio, or book both for 8.'}</span>
                 </div>
               </div>
               <div className="pt-4">
@@ -229,7 +239,7 @@ export default function Home() {
             </div>
             <div className="relative h-[400px] rounded-3xl overflow-hidden shadow-xl">
               <Image
-                src="/rooms/20240831_150457-1024x576.jpeg"
+                src="/rooms/apartaestudios/estudio-camas-cocina.jpg"
                 alt="Apartaestudios en SAVEVA"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-700"

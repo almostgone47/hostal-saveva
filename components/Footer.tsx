@@ -87,6 +87,12 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/mapa" className="hover:text-saveva-orange transition-colors flex items-center group">
+                  <span className="mr-1 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                  {t('map', 'nav')}
+                </Link>
+              </li>
+              <li>
                 <a href="https://hostal-saveva.roomleo.com/book" target="_blank" rel="noopener noreferrer" className="hover:text-saveva-orange transition-colors flex items-center group">
                   <span className="mr-1 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
                   {t('booking', 'nav')}

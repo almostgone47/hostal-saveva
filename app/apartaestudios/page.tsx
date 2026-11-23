@@ -2,225 +2,178 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useApp } from '@/context/AppContext';
 import MainLayout from '@/components/MainLayout';
-import { Shield, Users, CheckCircle, Home, MapPin, Send, ExternalLink } from 'lucide-react';
+import BookingSearchBar from '@/components/BookingSearchBar';
+import { MapPin, Trophy, Music, Users, Utensils, Bath, BedDouble, Check, MessageCircle, ArrowRight } from 'lucide-react';
+import { whatsappLink } from '@/lib/contact';
 
-interface Apartaestudio {
-  id: string;
-  title: string;
-  capacity: { es: string; en: string };
-  image: string;
-  url: string;
-}
-
-const apartaestudios: Apartaestudio[] = [
-  {
-    id: 'ae1',
-    title: 'Apartaestudio #1',
-    capacity: { es: 'Hasta 4 Personas', en: 'Up to 4 People' },
-    image: '/rooms/Copia-de-WhatsApp-Image-2023-10-14-at-7.47.33-PM-1024x576.jpeg',
-    url: 'https://hostalsaveva.com/tipo-de-habitacion/apartaestudio-1/',
-  },
-  {
-    id: 'ae2',
-    title: 'Apartaestudio #2',
-    capacity: { es: 'Hasta 8 Personas', en: 'Up to 8 People' },
-    image: '/rooms/20240831_150457-1024x576.jpeg',
-    url: 'https://hostalsaveva.com/tipo-de-habitacion/apartaestudio-2/',
-  },
-  {
-    id: 'ae3',
-    title: 'Apartaestudio #3',
-    capacity: { es: 'Hasta 3 Personas', en: 'Up to 3 People' },
-    image: '/rooms/Copia-de-WhatsApp-Image-2023-12-01-at-12.20.29-PM-1024x576.jpeg',
-    url: 'https://hostalsaveva.com/tipo-de-habitacion/apartaestudio-3/',
-  },
+const gallery = [
+  { src: '/rooms/apartaestudios/estudio-camas-cocina.jpg', es: 'Camarotes, cocina y comedor', en: 'Bunks, kitchen and dining area' },
+  { src: '/rooms/apartaestudios/camarotes.jpg', es: 'Camarotes con cortina de privacidad', en: 'Bunks with privacy curtains' },
+  { src: '/rooms/apartaestudios/cocina.jpg', es: 'Cocina equipada', en: 'Equipped kitchen' },
+  { src: '/rooms/apartaestudios/bano.jpg', es: 'Baño privado', en: 'Private bathroom' },
 ];
 
 export default function ApartaestudiosPage() {
-  const { t, language } = useApp();
+  const { language } = useApp();
+  const es = language === 'es';
 
-  const features = [
-    t('feat1', 'apartaestudios'),
-    t('feat2', 'apartaestudios'),
-    t('feat3', 'apartaestudios'),
-    t('feat4', 'apartaestudios'),
-    t('feat5', 'apartaestudios'),
+  const groupQuoteText = es
+    ? '¡Hola SAVEVA! 🐦 Somos un grupo y queremos cotizar los apartaestudios. Fechas: ___ · Personas: ___'
+    : "Hi SAVEVA! 🐦 We're a group and would like a quote for the studio apartments. Dates: ___ · People: ___";
+
+  const audiences = [
+    {
+      icon: <Trophy className="w-6 h-6 text-saveva-orange" />,
+      title: es ? 'Hinchas y equipos' : 'Fans & teams',
+      text: es
+        ? 'Partidos en el Atanasio Girardot y torneos en la Unidad Deportiva, sin taxis ni trancones.'
+        : 'Matches at the Atanasio Girardot and tournaments at the sports complex, no taxis or traffic.',
+    },
+    {
+      icon: <Music className="w-6 h-6 text-saveva-celeste" />,
+      title: es ? 'Conciertos y eventos' : 'Concerts & events',
+      text: es
+        ? 'Vuelve caminando después del show y descansa en tu propio espacio.'
+        : 'Walk back after the show and rest in your own space.',
+    },
+    {
+      icon: <Users className="w-6 h-6 text-saveva-green" />,
+      title: es ? 'Familias' : 'Families',
+      text: es
+        ? 'Cocina para preparar sus comidas y baño propio, con la calidez del hostal.'
+        : 'A kitchen to cook your own meals and your own bathroom, with the warmth of the hostel.',
+    },
   ];
 
-  const waText = (label: string) =>
-    `¡Hola SAVEVA! 🐦 Me interesa cotizar el ${label} para una estadía por noches.`;
+  const features = [
+    { icon: <BedDouble className="w-5 h-5" />, es: '4 camas en camarotes con cortina de privacidad', en: '4 beds in bunks with privacy curtains' },
+    { icon: <Utensils className="w-5 h-5" />, es: 'Cocina equipada y mesa de comedor', en: 'Equipped kitchen and dining table' },
+    { icon: <Bath className="w-5 h-5" />, es: 'Baño privado dentro del apartaestudio', en: 'Private bathroom inside the studio' },
+    { icon: <MapPin className="w-5 h-5" />, es: 'Laureles Estadio, a pocos minutos caminando del estadio', en: 'Laureles Estadio, a few minutes’ walk from the stadium' },
+  ];
 
   return (
     <MainLayout>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
-        {/* Header Block */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <h1 className="font-display font-black text-3xl sm:text-5xl text-saveva-blue dark:text-white tracking-tight mb-4">
-            {t('title', 'apartaestudios')}
-          </h1>
-          <div className="w-16 h-1 bg-saveva-orange mx-auto mb-6"></div>
-          <p className="text-slate-600 dark:text-slate-300 text-base sm:text-lg">
-            {t('sub', 'apartaestudios')}
+        {/* Hero */}
+        <section className="relative rounded-3xl overflow-hidden mb-6 min-h-[420px] sm:min-h-[460px] flex items-end">
+          <Image src={gallery[0].src} alt={es ? 'Apartaestudio SAVEVA cerca al Estadio' : 'SAVEVA studio near the Stadium'} fill priority className="object-cover" sizes="100vw" />
+          <div className="absolute inset-0 bg-gradient-to-t from-saveva-blue via-saveva-blue/70 to-saveva-blue/10" />
+          <div className="relative p-6 sm:p-10 text-white max-w-3xl">
+            <p className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider font-bold bg-saveva-orange px-3 py-1 rounded-full mb-4">
+              <MapPin className="w-3.5 h-3.5" />
+              {es ? 'Junto al Estadio Atanasio Girardot' : 'Next to the Atanasio Girardot Stadium'}
+            </p>
+            <h1 className="font-display font-black text-3xl sm:text-5xl tracking-tight mb-3">
+              {es ? 'Apartaestudios para familias y grupos' : 'Studio apartments for families & groups'}
+            </h1>
+            <p className="text-slate-200 text-base sm:text-lg">
+              {es
+                ? 'Dos apartaestudios privados con 4 camas, cocina y baño propio cada uno. Reserva uno para tu familia, o los dos para grupos de hasta 8.'
+                : 'Two private studios, each with 4 beds, its own kitchen and bathroom. Book one for your family, or both for groups of up to 8.'}
+            </p>
+          </div>
+        </section>
+
+        {/* Search → Roomleo */}
+        <div className="max-w-4xl mx-auto -mt-2 mb-16 relative z-20">
+          <BookingSearchBar defaultGuests={4} />
+          <p className="text-center text-xs text-slate-500 dark:text-slate-400 mt-3">
+            {es ? '¿Son más de 4, o no aparece disponible para tus fechas? ' : 'More than 4 of you, or not showing for your dates? '}
+            <a href={whatsappLink(groupQuoteText)} target="_blank" rel="noopener noreferrer" className="font-semibold text-[#1da851] underline underline-offset-2">
+              {es ? 'Escríbenos por WhatsApp' : 'Message us on WhatsApp'}
+            </a>
+            .
           </p>
         </div>
 
-        {/* Real Apartaestudios Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16 relative z-20">
-          {apartaestudios.map((apt) => (
-            <div
-              key={apt.id}
-              className="bg-white dark:bg-saveva-carddark rounded-3xl overflow-hidden border border-slate-100 dark:border-slate-800 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-1 group"
-            >
-              <div className="relative h-52 overflow-hidden">
-                <Image
-                  src={apt.image}
-                  alt={apt.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-              <div className="p-5 space-y-3">
-                <h3 className="font-display font-black text-lg text-saveva-blue dark:text-white group-hover:text-saveva-orange transition-colors">
-                  {apt.title}
-                </h3>
-                <p className="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
-                  <Users className="w-4 h-4 text-saveva-orange shrink-0" />
-                  {language === 'es' ? apt.capacity.es : apt.capacity.en}
-                </p>
-                <div className="flex items-center gap-2 pt-2">
-                  <a
-                    href={`https://wa.me/573332627268?text=${encodeURIComponent(waText(apt.title))}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 text-center text-xs font-bold text-white bg-saveva-orange hover:bg-saveva-orange/90 rounded-xl py-2.5 transition-colors"
-                  >
-                    {language === 'es' ? 'Consultar por WhatsApp' : 'Ask on WhatsApp'}
-                  </a>
-                  <a
-                    href={apt.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="shrink-0 text-saveva-blue dark:text-white/70 hover:text-saveva-orange transition-colors"
-                    aria-label="Ver apartaestudio en el sitio oficial"
-                  >
-                    <ExternalLink className="w-5 h-5" />
-                  </a>
+        {/* Who it's for */}
+        <section className="mb-20 relative z-20">
+          <h2 className="font-display font-black text-2xl sm:text-3xl text-saveva-blue dark:text-white text-center mb-10">
+            {es ? 'Ideal si vienes por el estadio' : 'Perfect if you are here for the stadium'}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {audiences.map((a) => (
+              <div key={a.title} className="bg-white dark:bg-saveva-carddark rounded-3xl p-6 border border-slate-100 dark:border-slate-800 shadow-sm">
+                <div className="w-12 h-12 rounded-2xl bg-slate-50 dark:bg-slate-900 flex items-center justify-center mb-4 border border-slate-100 dark:border-slate-800">
+                  {a.icon}
                 </div>
+                <h3 className="font-display font-black text-lg text-saveva-blue dark:text-white mb-1">{a.title}</h3>
+                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">{a.text}</p>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </section>
 
-        {/* Content splits and visuals */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20 relative z-20">
-
-          {/* Image visual block */}
-          <div className="lg:col-span-6 relative h-[450px] rounded-3xl overflow-hidden shadow-2xl">
-            <Image
-              src={apartaestudios[1].image}
-              alt="Apartaestudios Independientes de SAVEVA Hostal"
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              referrerPolicy="no-referrer"
-            />
-            {/* Quick stats floating badge */}
-            <div className="absolute bottom-6 left-6 bg-slate-900/90 text-white p-4 rounded-2xl backdrop-blur-md max-w-xs border border-white/10 flex items-center space-x-3">
-              <Users className="w-10 h-10 text-saveva-orange shrink-0 animate-bounce" />
-              <div>
-                <p className="font-bold text-sm">{language === 'es' ? 'Grupos de:' : 'Groups of:'}</p>
-                <p className="text-xs text-slate-300">{language === 'es' ? '3 a 8 personas por apartaestudio.' : '3 to 8 people per apartaestudio.'}</p>
-              </div>
-            </div>
+        {/* Gallery + features */}
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start mb-20 relative z-20">
+          <div className="lg:col-span-7 grid grid-cols-3 gap-3">
+            {gallery.map((g, i) => (
+              <figure key={g.src} className={`relative rounded-2xl overflow-hidden ${i === 0 ? 'col-span-3 h-72 sm:h-80' : 'h-32 sm:h-44'}`}>
+                <Image src={g.src} alt={es ? g.es : g.en} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 60vw" />
+                <figcaption className="absolute bottom-2 left-2 text-[11px] font-semibold bg-black/60 text-white px-2 py-0.5 rounded-md">
+                  {es ? g.es : g.en}
+                </figcaption>
+              </figure>
+            ))}
           </div>
 
-          {/* Text block */}
-          <div className="lg:col-span-6 space-y-6">
-            <div className="inline-flex items-center space-x-2 bg-saveva-orange/10 border border-saveva-orange/20 rounded-full px-4 py-1.5 text-saveva-orange text-xs font-mono font-bold uppercase">
-              <Home className="w-4 h-4" />
-              <span>{language === 'es' ? 'Entrada Independiente' : 'Private Access'}</span>
+          <div className="lg:col-span-5 space-y-6">
+            <h2 className="font-display font-black text-2xl sm:text-3xl text-saveva-blue dark:text-white">
+              {es ? 'Tu propio espacio, con todo lo del hostal' : 'Your own space, with everything the hostel offers'}
+            </h2>
+            <ul className="space-y-4">
+              {features.map((f) => (
+                <li key={f.es} className="flex items-start gap-3 text-sm text-slate-700 dark:text-slate-300">
+                  <span className="w-9 h-9 rounded-xl bg-saveva-orange/10 text-saveva-orange flex items-center justify-center shrink-0">{f.icon}</span>
+                  <span className="pt-2">{es ? f.es : f.en}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="rounded-2xl bg-slate-100/70 dark:bg-slate-900/60 p-4 text-sm text-slate-600 dark:text-slate-300 space-y-2">
+              <p className="flex items-start gap-2"><Check className="w-4 h-4 text-saveva-green shrink-0 mt-0.5" />{es ? 'WiFi, sala común y jardín del hostal incluidos.' : 'WiFi, the hostel common room and garden included.'}</p>
+              <p className="flex items-start gap-2"><Check className="w-4 h-4 text-saveva-green shrink-0 mt-0.5" />{es ? 'Check-in desde las 15:00.' : 'Check-in from 15:00.'}</p>
             </div>
-
-            <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-base sm:text-lg font-medium">
-              {t('desc1', 'apartaestudios')}
-            </p>
-
-            <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-              {t('desc2', 'apartaestudios')}
-            </p>
-
-            {/* Bullet features list */}
-            <div className="bg-slate-100/40 dark:bg-slate-900/40 p-6 rounded-3xl border border-slate-200/50 dark:border-slate-800/50 space-y-4">
-              <h3 className="font-display font-bold text-sm uppercase text-slate-400 tracking-wider">
-                {t('featuresTitle', 'apartaestudios')}
-              </h3>
-              <div className="grid grid-cols-1 gap-3">
-                {features.map((feat, idx) => (
-                  <div key={idx} className="flex items-start space-x-2 text-sm text-slate-700 dark:text-slate-300">
-                    <CheckCircle className="w-5 h-5 text-saveva-orange shrink-0 mt-0.5" />
-                    <span>{feat}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Contact WhatsApp Quote */}
-            <div className="pt-4">
+            <div className="flex flex-col sm:flex-row gap-3">
               <a
-                href={`https://wa.me/573332627268?text=${encodeURIComponent('¡Hola SAVEVA! 🐦 Me interesa cotizar un Apartaestudio para un grupo.')}`}
+                href={whatsappLink(groupQuoteText)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center space-x-2 bg-saveva-orange hover:bg-saveva-orange/95 text-white font-display font-bold text-sm px-6 py-3.5 rounded-xl shadow-sm hover:shadow-md transition-all active:translate-y-0"
+                className="flex-1 flex items-center justify-center gap-2 text-sm font-semibold text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:border-[#25D366] hover:text-[#1da851] rounded-xl py-3 transition-colors"
               >
-                <Send className="w-4 h-4" />
-                <span>{t('cta', 'apartaestudios')}</span>
+                <MessageCircle className="w-4 h-4 text-[#25D366]" />
+                {es ? 'Cotizar para grupo' : 'Group quote'}
+              </a>
+              <a
+                href="#top"
+                onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                className="flex-1 text-center text-sm font-bold text-white bg-saveva-orange hover:bg-saveva-orange/90 rounded-xl py-3 transition-colors"
+              >
+                {es ? 'Ver disponibilidad' : 'Check availability'}
               </a>
             </div>
-
           </div>
+        </section>
 
-        </div>
-
-        {/* Proximity Location Callout block */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-saveva-blue text-white p-8 md:p-12 rounded-3xl relative overflow-hidden shadow-xl">
-          <div className="space-y-4 z-10 relative">
-            <div className="flex items-center space-x-2 text-saveva-celeste font-mono uppercase text-xs tracking-wider">
-              <MapPin className="w-5 h-5 shrink-0" />
-              <span>{language === 'es' ? 'Ubicación Estratégica' : 'Strategic Location'}</span>
-            </div>
-            <h2 className="font-display font-black text-2xl sm:text-3xl tracking-tight leading-tight">
-              {language === 'es' ? 'Cerca de la acción deportiva de Medellín' : "Close to Medellin's main sporting actions"}
-            </h2>
-            <p className="text-slate-300 text-sm leading-relaxed">
-              {language === 'es'
-                ? 'Nos encontramos a pocos minutos de la Unidad Deportiva Atanasio Girardot, el complejo atlético y recreativo principal de la ciudad. Perfecto para delegaciones de natación, gimnasia, atletismo y fútbol que buscan un hospedaje cómodo, seguro, que permita concentrar al equipo y con facilidades de cocina privada.'
-                : 'We are situated just a few minutes walk from the Atanasio Girardot Sports Complex, the city\'s main athletic and recreational hub. Perfect for swimming, gymnastics, track, and soccer delegations looking for cozy, secure, independent lodging.'}
+        {/* Just need a bed? */}
+        <section className="rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 relative z-20">
+          <div>
+            <h3 className="font-display font-black text-lg text-saveva-blue dark:text-white">
+              {es ? '¿Viajas solo y necesitas una cama?' : 'Travelling solo and just need a bed?'}
+            </h3>
+            <p className="text-sm text-slate-600 dark:text-slate-300">
+              {es ? 'También vendemos estas habitaciones por cama, en habitación compartida.' : 'We also sell these rooms bed by bed, as a shared room.'}
             </p>
           </div>
-
-          <div className="relative h-60 rounded-2xl overflow-hidden self-center border border-white/10 z-10">
-            <Image
-              src="/gallery/estadio-real.jpg"
-              alt="Estadio Atanasio Girardot Medellín"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 40vw"
-              referrerPolicy="no-referrer"
-            />
-          </div>
-
-          {/* Background Hummingbird watermark */}
-          <div className="absolute top-[-20px] right-[-20px] w-64 h-64 text-white/5 pointer-events-none">
-            <svg viewBox="0 0 64 64" fill="currentColor" className="w-full h-full">
-              <path d="M12 28 C16 28 22 24 26 18 C30 12 30 6 28 4 C26 2 20 2 16 6 C12 10 10 18 12 28 Z" />
-            </svg>
-          </div>
-        </div>
+          <Link href="/habitaciones#compartida-4" className="inline-flex items-center gap-2 text-sm font-bold text-saveva-blue dark:text-white hover:text-saveva-orange">
+            {es ? 'Ver camas en habitación compartida' : 'See shared-room beds'}
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </section>
 
       </div>
     </MainLayout>

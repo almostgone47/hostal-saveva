@@ -24,10 +24,11 @@ export default function Navbar() {
   // Close drawer on path change (handled via inline click handlers to avoid effect setstate)
 
   const navItems = [
-    { name: t('home', 'nav'), path: '/' },
+    // Home is the logo; the map lives on Contacto and in the footer.
     { name: t('rooms', 'nav'), path: '/habitaciones' },
+    { name: t('apartments', 'nav'), path: '/apartaestudios' },
     { name: t('experiences', 'nav'), path: '/experiencias' },
-    { name: t('map', 'nav'), path: '/mapa' },
+    { name: t('about', 'nav'), path: '/nosotros' },
     { name: t('contact', 'nav'), path: '/contacto' },
   ];
 

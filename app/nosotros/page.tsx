@@ -44,16 +44,16 @@ export default function NosotrosPage() {
             <div className="w-10 h-0.5 bg-saveva-orange"></div>
             
             <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-base">
-              {t('who_we_are_desc', 'nosotros')}
+              {t('storyDesc1', 'nosotros')}
             </p>
 
             <div className="bg-slate-100/50 dark:bg-slate-900/40 p-6 rounded-3xl border border-slate-200/50 dark:border-slate-800/50 space-y-3">
               <h3 className="font-display font-bold text-sm uppercase text-saveva-orange tracking-wider flex items-center space-x-1.5">
                 <Star className="w-4 h-4 text-saveva-orange" />
-                <span>{t('personality', 'nosotros')}</span>
+                <span>{language === 'es' ? 'Nuestra personalidad' : 'Our personality'}</span>
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                {t('personality_desc', 'nosotros')}
+                {t('storyDesc2', 'nosotros')}
               </p>
             </div>
           </div>
@@ -82,7 +82,7 @@ export default function NosotrosPage() {
               {t('missionTitle', 'nosotros')}
             </h2>
             <p className="text-slate-200 text-sm leading-relaxed relative z-10">
-              {t('mission_desc', 'nosotros')}
+              {t('missionDesc', 'nosotros')}
             </p>
             <div className="absolute bottom-[-30px] right-[-30px] w-48 h-48 opacity-5 text-white pointer-events-none">
               <svg viewBox="0 0 64 64" fill="currentColor" className="w-full h-full">
@@ -97,7 +97,7 @@ export default function NosotrosPage() {
               {t('visionTitle', 'nosotros')}
             </h2>
             <p className="text-slate-100 text-sm leading-relaxed relative z-10">
-              {t('vision_desc', 'nosotros')}
+              {t('visionDesc', 'nosotros')}
             </p>
             <div className="absolute bottom-[-30px] right-[-30px] w-48 h-48 opacity-5 text-white pointer-events-none">
               <svg viewBox="0 0 64 64" fill="currentColor" className="w-full h-full">
